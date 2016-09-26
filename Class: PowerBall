@@ -9,12 +9,33 @@ public class PowerBall
     {
         Random rand = new Random();
 
-        first = rand.nextInt(70) + 1;
-        second = rand.nextInt(70) + 1;
-        third = rand.nextInt(70) + 1;
-        fourth = rand.nextInt(70) + 1;
-        fifth = rand.nextInt(70) + 1;
-        sixth = rand.nextInt(27) + 1;
+        first = rand.nextInt(69) + 1;
+        second = rand.nextInt(69) + 1;
+        
+        while(second == first)
+        {
+            second = rand.nextInt(69) + 1;
+        }
+        
+        third = rand.nextInt(69) + 1;
+        while(third == first || third == second)
+        {
+            second = rand.nextInt(69) + 1;
+        }
+        
+        fourth = rand.nextInt(69) + 1;
+        while(fourth == first || fourth == second || fourth == third)
+        {
+            fourth = rand.nextInt(69) + 1;
+        }
+        
+        fifth = rand.nextInt(69) + 1;
+        while(fifth == first || fifth == second || fifth == third || fifth == fourth)
+        {
+            fifth = rand.nextInt(69) + 1;
+        }
+        
+        sixth = rand.nextInt(26) + 1;
     }
     
     public int getFirst()
