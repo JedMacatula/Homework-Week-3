@@ -1,0 +1,13 @@
+package lotterysimulator;
+
+public class LotterySimulator 
+{
+
+    public static void main(String[] args) 
+    {
+        PowerBall ticket1 = new PowerBall();
+        
+        System.out.println("first: " + ticket1.getFirst());
+    }
+    
+}
