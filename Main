@@ -1,13 +1,96 @@
 package lotterysimulator;
+import java.util.Scanner;
 
 public class LotterySimulator 
 {
-
     public static void main(String[] args) 
+    {   
+        Menu();
+    } 
+    
+    public static void Menu()
     {
-        PowerBall ticket1 = new PowerBall();
+        PowerBall winningTicket1 = new PowerBall();
+        MegaMillions winningTicket2 = new MegaMillions();
         
-        System.out.println("first: " + ticket1.getFirst());
+        System.out.println("Winning Power Ball: " + winningTicket1.getFirst() + " " + winningTicket1.getSecond() + " " + winningTicket1.getThird() + " " + winningTicket1.getFourth() + " " + winningTicket1.getFifth() + " " + winningTicket1.getSixth());
+        System.out.println("Winning Mega Millions: " + winningTicket2.getFirst() + " " + winningTicket2.getSecond() + " " + winningTicket2.getThird() + " " + winningTicket2.getFourth() + " " + winningTicket2.getFifth() + " " + winningTicket2.getSixth());
+        System.out.println("");
+        
+        Scanner input = new Scanner(System.in);
+        int ticketType = 0;
+        int cost = 0;
+        int amountPurchased;
+        
+        while(ticketType != 3)
+        {
+            System.out.println("1) PowerBall ");
+            System.out.println("2) MegaMillions ");
+            System.out.println("3) EXIT");
+            System.out.print("Please choose an option from above (enter #): ");
+            ticketType = input.nextInt();
+            
+            if(ticketType == 1)
+            {
+                System.out.print("How many Powerball tickets would you like to buy?: ");
+                amountPurchased = input.nextInt();
+                cost = cost + amountPurchased * 2;
+            }
+            else if (ticketType == 2)
+            {
+                System.out.print("How many Mega Millions tickets would you like to buy?: ");
+                amountPurchased = input.nextInt();
+                cost = cost + amountPurchased;
+            }
+            else
+            {
+                System.out.println("That is not a valid option");
+                System.out.println("");
+            }
+        }
     }
     
+    public static int powerballCalculations(PowerBall myWinningTicket, int numberOfTickets)
+    {
+        int gain = 0;
+        
+        for(int index = 0; index < numberOfTickets; index++)
+        {
+            int numberOfMatches = 0;
+            boolean powerballMatch = false;
+            PowerBall newTicket = new PowerBall();
+            
+            if(newTicket.getFirst() == myWinningTicket.getFirst() || newTicket.getFirst() == myWinningTicket.getSecond() || newTicket.getFirst() == myWinningTicket.getThird() || newTicket.getFirst() == myWinningTicket.getFourth() || newTicket.getFirst() == myWinningTicket.getFifth())
+            {
+                numberOfMatches++;
+            }
+            
+            if(newTicket.getSecond() == myWinningTicket.getFirst() || newTicket.getSecond() == myWinningTicket.getSecond() || newTicket.getSecond() == myWinningTicket.getThird() || newTicket.getSecond() == myWinningTicket.getFourth() || newTicket.getSecond() == myWinningTicket.getFifth())
+            {
+                numberOfMatches++;
+            }
+            
+            if(newTicket.getThird() == myWinningTicket.getFirst() || newTicket.getThird() == myWinningTicket.getSecond() || newTicket.getThird() == myWinningTicket.getThird() || newTicket.getThird() == myWinningTicket.getFourth() || newTicket.getThird() == myWinningTicket.getFifth())
+            {
+                numberOfMatches++;
+            }
+            
+            if(newTicket.getFourth() == myWinningTicket.getFirst() || newTicket.getFourth() == myWinningTicket.getSecond() || newTicket.getFourth() == myWinningTicket.getThird() || newTicket.getFourth() == myWinningTicket.getFourth() || newTicket.getFourth() == myWinningTicket.getFifth())
+            {
+                numberOfMatches++;
+            }
+            
+            if(newTicket.getFifth() == myWinningTicket.getFirst() || newTicket.getFifth() == myWinningTicket.getSecond() || newTicket.getFifth() == myWinningTicket.getThird() || newTicket.getFifth() == myWinningTicket.getFourth() || newTicket.getFifth() == myWinningTicket.getFifth())
+            {
+                numberOfMatches++;
+            }
+            
+            if(newTicket.getSixth() == myWinningTicket.getSixth())
+            {
+                powerballMatch = true;
+            }
+        }
+        
+        return 0;
+    }
 }
